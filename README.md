@@ -1,3 +1,3 @@
 #Puhelinluettelo
 
-[https://github.com/sofiaaair/fullStackPart3]
+[https://github.com/sofiaaair/fullstack_part3]
