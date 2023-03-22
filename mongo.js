@@ -14,37 +14,37 @@ const url =
 
 mongoose.set('strictQuery', false)
 mongoose.connect(url)
-.then( () => {
+  .then( () => {
 
-const personSchema = new mongoose.Schema({
-  name: String,
-  number: String
-})
+    const personSchema = new mongoose.Schema({
+      name: String,
+      number: String
+    })
 
-const Person = mongoose.model('Person', personSchema)
+    const Person = mongoose.model('Person', personSchema)
 
-if (process.argv.length === 5){ 
+    if (process.argv.length === 5){
 
-const person = new Person({
-  name: name,
-  number: number,
-})
+      const person = new Person({
+        name: name,
+        number: number,
+      })
 
-person.save().then(result => {
-  console.log(`added ${name} ${number} to phonebook`)
-  mongoose.connection.close()
-})} else {
-  Person.find({}).then(
-    data => {
-      console.log("Phonebook: ")
-      data.forEach(person => {
-      console.log(`${person.name} ${person.number}`)})
-      mongoose.connection.close()
+      person.save().then(() => {
+        console.log(`added ${name} ${number} to phonebook`)
+        mongoose.connection.close()
+      })} else {
+      Person.find({}).then(
+        data => {
+          console.log('Phonebook: ')
+          data.forEach(person => {
+            console.log(`${person.name} ${person.number}`)})
+          mongoose.connection.close()
+        }
+      )
+
     }
-  )
-  
-}
 
 
 
-})
+  })
